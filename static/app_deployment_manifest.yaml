@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+spec:
+  selector:
+    matchLabels:
+      app: web-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: 772859080303.dkr.ecr.us-east-1.amazonaws.com/assignment_app:app
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DBUSER
+          value: "root"
+        - name: DBPWD
+          value: "pw"
+        - name: DBPORT
+          value: "3306"
+        - name: DBHOST
+          value: "10.100.111.187"
+        - name: APP_COLOR
+          value: "pink"

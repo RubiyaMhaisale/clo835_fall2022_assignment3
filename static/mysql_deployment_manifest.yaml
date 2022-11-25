@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      volumes:
+      - name: mysql-s-pvc
+        persistentVolumeClaim:
+          claimName: mysql-s-pvc
+      containers:
+      - name: mysql
+        image: 772859080303.dkr.ecr.us-east-1.amazonaws.com/assignment_mysql:mysql
+        ports:
+        - containerPort: 3306
+        env:
+          - name: DBPWD
+            value: "pw"
+          - name: DBUSER
+            value: "root"
+          - name: MYSQL_ROOT_PASSWORD
+            value: "pw"
