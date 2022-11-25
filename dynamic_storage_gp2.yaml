@@ -6,4 +6,5 @@ provisioner: kubernetes.io/aws-ebs
 parameters:
   fsType: ext4
   type: gp2
+reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
