@@ -15,21 +15,30 @@ spec:
         app: mysql
     spec:
       volumes:
-      - name: mysql-s-pvc
-        hostPath:
-          path: /var/lib/mysql
+      - name: mysql-pvcf
+        persistentVolumeClaim:
+          claimName: mysql-pvcf
       containers:
       - name: mysql
         image: 772859080303.dkr.ecr.us-east-1.amazonaws.com/assignment_mysql:mysql
         volumeMounts:
-        - name: mysql-s-pvc
+        - name: mysql-pvcf
           mountPath: /var/lib/mysql
         ports:
         - containerPort: 3306
         env:
           - name: DBPWD
-            value: "pw"
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass-mspwd
+                key: DBPWD
           - name: DBUSER
-            value: "root"
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass-mspwd
+                key: DBUSER
           - name: MYSQL_ROOT_PASSWORD
-            value: "pw"
+            valueFrom:
+              secretKeyRef:
+                name: db-user-pass-mspwd
+                key: MYSQL_ROOT_PASSWORD

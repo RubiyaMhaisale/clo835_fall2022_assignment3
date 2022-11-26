@@ -11,4 +11,4 @@ spec:
     - ReadOnlyMany
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /tmp/mysql
+    path: /var/lib/mysql

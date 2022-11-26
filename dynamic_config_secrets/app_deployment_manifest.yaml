@@ -20,13 +20,17 @@ spec:
         ports:
         - containerPort: 8080
         env:
+        - name: DBHOST
+          value: "10.100.211.208"
         - name: DBUSER
           value: "root"
         - name: DBPWD
           value: "pw"
         - name: DBPORT
           value: "3306"
-        - name: DBHOST
-          value: "10.100.137.206"
         - name: APP_COLOR
-          value: "blue"
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: APP_COLOR
+        
