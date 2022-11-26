@@ -16,11 +16,14 @@ spec:
     spec:
       volumes:
       - name: mysql-s-pvc
-        persistentVolumeClaim:
-          claimName: mysql-s-pvc
+        hostPath:
+          path: /tmp/mysql
       containers:
       - name: mysql
         image: 772859080303.dkr.ecr.us-east-1.amazonaws.com/assignment_mysql:mysql
+        volumeMounts:
+        - name: mysql-s-pvc
+          mountPath: /tmp/mysql
         ports:
         - containerPort: 3306
         env:

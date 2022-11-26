@@ -21,6 +21,9 @@ spec:
       containers:
       - name: mysql
         image: 772859080303.dkr.ecr.us-east-1.amazonaws.com/assignment_mysql:mysql
+        volumeMounts:
+        - name: mysql-pvc
+          mountPath: /var/lib/mysql
         ports:
         - containerPort: 3306
         env:
