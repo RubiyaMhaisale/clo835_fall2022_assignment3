@@ -2,13 +2,13 @@
 
 Commands:
 
-#<<Disable AWS creds in Cloud9>>
+#Disable AWS creds in Cloud9>>
 rm -vf ${HOME}/.aws/credentials
 
 aws configure
 
 vi ${HOME}/.aws/credentials
-<<Add session token>>
+#Add session token>>
 
 <<Do github pushes for docker images>>
 
