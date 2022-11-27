@@ -66,9 +66,9 @@ vi ~/.kube/config
 git clone https://github.com/RubiyaMhaisale/clo835_fall2022_assignment3.git
 ************************************
 Task-1:
----
+
 k get nodes
----
+
 ************************************
 Task-2:
 ---
