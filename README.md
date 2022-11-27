@@ -71,50 +71,50 @@ k get nodes
 
 ************************************
 Task-2:
----
+
 cd clo835_fall2022_assignment3/dynamic/
 k create -f dynamic_storage_gp2.yaml
 k describe storageclass standard
 k get sc
----
+
 ************************************
 Task-3:
----
+
 k create ns lab3
 k apply -f pvc_mysql.yaml -n lab3
 k describe pvc mysql-pvc -n lab3
----
+
 ************************************
 Task-4: 
----
+
 k apply -f mysql_deployment_manifest.yaml -n lab3
 k get all -n lab3
 k apply -f mysql_clusterip_service.yaml -n lab3
 k get all -n lab3
 k describe pvc mysql-pvc -n lab3
----
+
 ************************************
 Task-6: 
----
+
 <<get IP of service of mysql, make changes in app deployment file>>
 k apply -f app_deployment_manifest.yaml -n lab3
 k get all -n lab3
 k apply -f app_lb_service.yaml -n lab3 
 k get all -n lab3
----
+
 ************************************
 Task-7:
----
+
 k get all -n lab3
 k get pods -o wide -n lab3
 k delete pod <<mysql-pod>> -n lab3
 k get all -n lab3
 k get pods -o wide -n lab3
 k describe pvc mysql-pvc -n lab3
----
+
 ************************************
 Task-8:
----
+
 cd clo835_fall2022_assignment3/static/
 k create ns lab3s
 k apply -f static_storage.yaml -n lab3s
@@ -123,32 +123,32 @@ k apply -f mysql_pv_hostpath.yaml -n lab3s
 k get pv -n lab3s
 k apply -f mysql_pvc.yaml -n lab3s
 k get pvc mysql-s-pvc -n lab3s
----
+
 k apply -f mysql_deployment_manifest.yaml -n lab3s
 k get all -n lab3s
 k apply -f mysql_clusterip_service.yaml -n lab3s
 k get all -n lab3s
 k describe pvc mysql-s-pvc -n lab3s
----
+
 <<get IP of service of mysql, make changes in app deployment file>>
 k apply -f app_deployment_manifest.yaml -n lab3s
 k get all -n lab3s
 k apply -f app_lb_service.yaml -n lab3s 
 k get all -n lab3s
----
+
 *************************************
 Task-9:
----
+
 k get all -n lab3s
 k get pods -o wide -n lab3s
 k delete pod <<mysql-pod>> -n lab3s
 k get all -n lab3s
 k get pods -o wide -n lab3s
 k describe pvc mysql-pvc -n lab3s
----
+
 *************************************
 Task-10
----
+
 cd clo835_fall2022_assignment3/dynamic_config_secrets/
 k create ns lab3f
 k create -f app-config.yaml -n lab3f
