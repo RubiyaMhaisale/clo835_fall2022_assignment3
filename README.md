@@ -2,7 +2,7 @@
 
 Commands:
 
-<<Disable AWS creds in Cloud9>>
+#<<Disable AWS creds in Cloud9>>
 rm -vf ${HOME}/.aws/credentials
 
 aws configure
